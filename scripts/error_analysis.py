@@ -158,7 +158,7 @@ def main() -> None:
         "- **Non-monotonic fusion boundary:** because the fusion MLP is not an average of unimodal probabilities, it can be wrong even when both separate heads are correct.",
         "- **OOD boundary instability:** several California regressions lie close to 0.5, consistent with sensitivity to event shift and random seed.", "",
         "### Slide assets", "",
-        "- Combined panel: `figures/cases/qualitative_cases.png`", 
+        "- Combined panel: `figures/cases/qualitative_cases.png`",
         "- Rescue panel: `figures/cases/qualitative_rescues.png`",
         "- Regression panel: `figures/cases/qualitative_regressions.png`", "",
     ]
