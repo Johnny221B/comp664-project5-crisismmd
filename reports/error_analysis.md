@@ -4,55 +4,47 @@ Seed: 42. Categories are computed directly from aligned prediction CSVs.
 
 ## id_official_strict
 
-| category                 |   count |
-|:-------------------------|--------:|
-| all_correct              |    1100 |
-| fusion_rescue            |     257 |
-| fusion_regression        |     106 |
-| all_wrong                |      57 |
-| fusion_strong_regression |      10 |
-| fusion_strong_rescue     |       4 |
+| category          |   count |
+|:------------------|--------:|
+| all_correct       |    1100 |
+| fusion_rescue     |     261 |
+| fusion_regression |     116 |
+| all_wrong         |      57 |
 
-### fusion_strong_rescue
+The four rows above are mutually exclusive and exhaustive. `strong_rescue` means both unimodal models were wrong while fusion was correct; `strong_regression` means both unimodal models were correct while fusion was wrong.
 
-Count: 4. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+Strong rescue subset: 4; strong regression subset: 10.
 
 ### fusion_rescue
 
-Count: 257. Selected examples are in `results/tables/fusion_cases_selected.csv`.
-
-### fusion_strong_regression
-
-Count: 10. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+Count: 261. Selected examples are in `results/tables/fusion_cases_selected.csv`.
 
 ### fusion_regression
 
-Count: 106. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+Count: 116. Selected examples are in `results/tables/fusion_cases_selected.csv`.
 
 ## ood_heldout_strict
 
-| category                 |   count |
-|:-------------------------|--------:|
-| all_correct              |     746 |
-| fusion_rescue            |     218 |
-| fusion_regression        |     119 |
-| all_wrong                |      75 |
-| fusion_strong_regression |      33 |
-| fusion_strong_rescue     |       4 |
+| category          |   count |
+|:------------------|--------:|
+| all_correct       |     746 |
+| fusion_rescue     |     222 |
+| fusion_regression |     152 |
+| all_wrong         |      75 |
 
-### fusion_strong_rescue
+The four rows above are mutually exclusive and exhaustive. `strong_rescue` means both unimodal models were wrong while fusion was correct; `strong_regression` means both unimodal models were correct while fusion was wrong.
 
-Count: 4. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+Strong rescue subset: 4; strong regression subset: 33.
 
 ### fusion_rescue
 
-Count: 218. Selected examples are in `results/tables/fusion_cases_selected.csv`.
-
-### fusion_strong_regression
-
-Count: 33. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+Count: 222. Selected examples are in `results/tables/fusion_cases_selected.csv`.
 
 ### fusion_regression
 
-Count: 119. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+Count: 152. Selected examples are in `results/tables/fusion_cases_selected.csv`.
+
+## Curated presentation cases
+
+Eight representative cases (four rescues and four regressions across ID/OOD) are recorded with researcher interpretations in `results/tables/qualitative_cases.csv` and rendered in `figures/cases/qualitative_cases.png`. These notes are interpretations, not dataset annotations.
 

@@ -18,6 +18,11 @@ def validate_frame(frame: pd.DataFrame, source: str = "manifest") -> None:
         raise ValueError(f"{source}: duplicate sample_id")
     if set(frame.label.unique()) - {0, 1}:
         raise ValueError(f"{source}: labels must be exactly binary-compatible")
+    if {"text_label", "image_label"}.issubset(frame.columns):
+        if not frame.text_label.eq(frame.image_label).all():
+            raise ValueError(f"{source}: text/image label disagreement")
+        if not frame.label.eq(frame.text_label).all():
+            raise ValueError(f"{source}: target label differs from agreed modality labels")
     split_sets = {
         split: part for split, part in frame.groupby("split", sort=False)
     }
@@ -28,7 +33,8 @@ def validate_frame(frame: pd.DataFrame, source: str = "manifest") -> None:
             overlap = set(split_sets[left][column].astype(str)) & set(split_sets[right][column].astype(str))
             if overlap:
                 raise ValueError(f"{source}: {column} overlap {left}/{right}: {len(overlap)}")
-    if set(frame.protocol) == {"ood_heldout"}:
+    protocols = set(frame.protocol.astype(str))
+    if len(protocols) == 1 and next(iter(protocols)).startswith("ood_heldout"):
         train_val = frame[frame.split.isin(["train", "val"])]
         if (train_val.event == "california_wildfires").any():
             raise ValueError("California Wildfires leaked into OOD train/val")
@@ -52,4 +58,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

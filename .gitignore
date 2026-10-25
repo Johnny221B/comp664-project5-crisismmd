@@ -20,6 +20,7 @@ dist/
 .idea/
 .vscode/
 
-# These montages contain CrisisMMD source images; regenerate locally.
-figures/cases/
-
+# Case montages contain CrisisMMD source images. Keep only the curated private-
+# course presentation panel; regenerate the larger candidate grids locally.
+figures/cases/*
+!figures/cases/qualitative_cases.png

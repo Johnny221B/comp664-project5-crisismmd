@@ -41,8 +41,19 @@ def grouped_bootstrap(left: pd.DataFrame, right: pd.DataFrame, metric: str, b: i
     merged = left.merge(right, on=["sample_id", "tweet_id", "label"], suffixes=("_left", "_right"), validate="one_to_one")
     groups = merged.tweet_id.unique(); rng = np.random.default_rng(664); differences = []
     def score(labels, preds):
-        values = classification_metrics(labels, preds)
-        return values[metric]
+        labels = np.asarray(labels); preds = np.asarray(preds)
+        if metric == "accuracy":
+            return float(np.mean(labels == preds))
+        if metric == "macro_f1":
+            class_scores = []
+            for label in (0, 1):
+                true_positive = np.sum((labels == label) & (preds == label))
+                false_positive = np.sum((labels != label) & (preds == label))
+                false_negative = np.sum((labels == label) & (preds != label))
+                denominator = 2 * true_positive + false_positive + false_negative
+                class_scores.append(0.0 if denominator == 0 else 2 * true_positive / denominator)
+            return float(np.mean(class_scores))
+        raise ValueError(f"unsupported bootstrap metric: {metric}")
     observed = score(merged.label, merged.pred_left) - score(merged.label, merged.pred_right)
     grouped = {group: rows.index.to_numpy() for group, rows in merged.groupby("tweet_id")}
     for _ in range(b):
@@ -85,12 +96,31 @@ def main() -> None:
                         "accuracy": result["accuracy"], "macro_f1": result["macro_f1"]})
         for seed in SEEDS:
             fusion = prediction_cache[(protocol, "fusion", seed)]
-            for comparison in ("text", "image"):
+            validation_scores = {
+                model: next(row["val_macro_f1"] for row in run_rows
+                            if row["protocol"] == protocol and row["model"] == model and row["seed"] == seed)
+                for model in ("text", "image")
+            }
+            best_unimodal = max(validation_scores, key=validation_scores.get)
+            for contrast, comparison in (("fusion-text", "text"), ("fusion-image", "image")):
                 other = prediction_cache[(protocol, comparison, seed)]
                 for metric in ("macro_f1", "accuracy"):
                     difference, low, high = grouped_bootstrap(fusion, other, metric)
-                    boot_rows.append({"protocol": protocol, "seed": seed, "contrast": f"fusion-{comparison}", "metric": metric,
-                                      "difference": difference, "ci95_low": low, "ci95_high": high, "bootstrap_groups": "tweet_id", "B": 5000})
+                    boot_rows.append({"protocol": protocol, "seed": seed, "contrast": contrast, "comparator": comparison,
+                                      "selection_basis": "fixed",
+                                      "metric": metric, "difference": difference, "ci95_low": low, "ci95_high": high,
+                                      "ci_crosses_zero": bool(low <= 0 <= high), "bootstrap_groups": "tweet_id", "B": 5000})
+            # The validation-selected comparator is one of the two fixed
+            # unimodal models, so reuse its identical paired resamples rather
+            # than recomputing another 5,000 draws.
+            source_contrast = f"fusion-{best_unimodal}"
+            for metric in ("macro_f1", "accuracy"):
+                source = next(row for row in boot_rows if row["protocol"] == protocol and row["seed"] == seed
+                              and row["contrast"] == source_contrast and row["metric"] == metric)
+                selected = dict(source)
+                selected.update({"contrast": "fusion-best_unimodal", "comparator": best_unimodal,
+                                 "selection_basis": "validation_macro_f1"})
+                boot_rows.append(selected)
     runs = pd.DataFrame(run_rows); events = pd.DataFrame(event_rows); boots = pd.DataFrame(boot_rows)
     table_root = Path("results/tables"); table_root.mkdir(parents=True, exist_ok=True)
     runs.to_csv(table_root / "main_runs.csv", index=False)

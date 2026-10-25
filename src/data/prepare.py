@@ -33,6 +33,11 @@ def load_official_agreed(data_root: Path) -> pd.DataFrame:
         raise ValueError("official agreed split contains text/image label disagreement")
     if not raw.label_text_image.str.lower().eq("positive").all():
         raise ValueError("official agreed split contains a non-positive agreement flag")
+    normalized_text = raw.label_text.map(normalize_label)
+    normalized_image = raw.label_image.map(normalize_label)
+    normalized_target = raw.label.map(normalize_label)
+    if not normalized_text.eq(normalized_image).all() or not normalized_target.eq(normalized_text).all():
+        raise ValueError("official agreed split target differs from modality labels")
     result = pd.DataFrame({
         "sample_id": raw.image_id.astype(str),
         "tweet_id": raw.tweet_id.astype(str),
@@ -40,9 +45,9 @@ def load_official_agreed(data_root: Path) -> pd.DataFrame:
         "event": raw.event_name.map(normalize_event),
         "text": raw.tweet_text,
         "image_path": raw.image.map(lambda value: str((image_root.parent / value).resolve())),
-        "text_label": raw.label_text.map(normalize_label),
-        "image_label": raw.label_image.map(normalize_label),
-        "label": raw.label.map(normalize_label),
+        "text_label": normalized_text,
+        "image_label": normalized_image,
+        "label": normalized_target,
         "official_split": raw.official_split,
         "protocol": "id_official",
         "split": raw.split,
@@ -76,4 +81,3 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
         while chunk := stream.read(chunk_size):
             digest.update(chunk)
     return digest.hexdigest()
-
