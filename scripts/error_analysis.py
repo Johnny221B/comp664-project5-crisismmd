@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import math
 import textwrap
 from pathlib import Path
 
@@ -67,9 +68,21 @@ CURATED_NOTES = {
     ("ood_heldout_strict", "917861564002181120_0"): "OOD conflict regression: highly positive text is pulled below threshold by a negative image prediction.",
 }
 
+CURATED_MECHANISMS = {
+    ("id_official_strict", "910586004784009216_0"): "shared_false_positive_suppressed",
+    ("id_official_strict", "913419277830520833_0"): "text_led_rescue",
+    ("id_official_strict", "913515779605266433_0"): "nonlinear_boundary_failure",
+    ("id_official_strict", "915287630723665932_0"): "misleading_image_dominates",
+    ("ood_heldout_strict", "923324482143518721_0"): "shared_false_positive_suppressed",
+    ("ood_heldout_strict", "921097679345733634_0"): "image_led_rescue",
+    ("ood_heldout_strict", "920045440594268160_0"): "ood_boundary_instability",
+    ("ood_heldout_strict", "917861564002181120_0"): "modality_conflict_negative_transfer",
+}
 
-def curated_figure(selected: pd.DataFrame, path: Path) -> None:
-    fig, axes = plt.subplots(2, 4, figsize=(16, 9), squeeze=False)
+
+def curated_figure(selected: pd.DataFrame, path: Path, title: str) -> None:
+    columns = min(4, len(selected)); rows = math.ceil(len(selected) / columns)
+    fig, axes = plt.subplots(rows, columns, figsize=(4 * columns, 4.5 * rows), squeeze=False)
     for axis, row in zip(axes.flat, selected.itertuples()):
         with Image.open(row.image_path) as image:
             axis.imshow(ImageOps.exif_transpose(image).convert("RGB"))
@@ -81,7 +94,9 @@ def curated_figure(selected: pd.DataFrame, path: Path) -> None:
             f"y={row.label}; T/I/F={row.pred_text}/{row.pred_image}/{row.pred_fusion}\n{text}",
             fontsize=7,
         )
-    fig.suptitle("Representative fusion rescues and regressions (seed 42)")
+    for axis in list(axes.flat)[len(selected):]:
+        axis.axis("off")
+    fig.suptitle(title)
     fig.tight_layout(); path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, dpi=220, bbox_inches="tight"); plt.close(fig)
 
@@ -111,6 +126,7 @@ def main() -> None:
     curated = all_cases[[key in CURATED_NOTES for key in case_keys]].copy()
     curated_keys = list(zip(curated.protocol, curated.sample_id))
     curated["qualitative_note"] = [CURATED_NOTES[key] for key in curated_keys]
+    curated["mechanism"] = [CURATED_MECHANISMS[key] for key in curated_keys]
     order = {key: index for index, key in enumerate(CURATED_NOTES)}
     curated["display_order"] = [order[key] for key in curated_keys]
     curated = curated.sort_values("display_order").drop(columns="display_order")
@@ -118,8 +134,34 @@ def main() -> None:
         missing = set(CURATED_NOTES) - set(zip(curated.protocol, curated.sample_id))
         raise AssertionError(f"missing curated samples: {sorted(missing)}")
     curated.to_csv("results/tables/qualitative_cases.csv", index=False)
-    curated_figure(curated, Path("figures/cases/qualitative_cases.png"))
-    report += ["## Curated presentation cases", "", "Eight representative cases (four rescues and four regressions across ID/OOD) are recorded with researcher interpretations in `results/tables/qualitative_cases.csv` and rendered in `figures/cases/qualitative_cases.png`. These notes are interpretations, not dataset annotations.", ""]
+    curated_figure(curated, Path("figures/cases/qualitative_cases.png"),
+                   "Representative fusion rescues and regressions (seed 42)")
+    curated_figure(curated[curated.category.eq("fusion_rescue")], Path("figures/cases/qualitative_rescues.png"),
+                   "When fusion helps: four representative rescues (seed 42)")
+    curated_figure(curated[curated.category.eq("fusion_regression")], Path("figures/cases/qualitative_regressions.png"),
+                   "When fusion hurts: four representative regressions (seed 42)")
+    display = curated[["protocol", "sample_id", "category", "correctness_pattern", "label",
+                       "pred_text", "pred_image", "pred_fusion", "prob_text", "prob_image",
+                       "prob_fusion", "mechanism", "text", "qualitative_note"]].copy()
+    display["text"] = display.text.map(lambda value: textwrap.shorten(str(value), width=100, placeholder="..."))
+    for column in ("prob_text", "prob_image", "prob_fusion"):
+        display[column] = display[column].map(lambda value: f"{value:.3f}")
+    report += [
+        "## Curated presentation cases", "",
+        "Eight representative cases (four rescues and four regressions across ID/OOD) are recorded below and in `results/tables/qualitative_cases.csv`. These notes are researcher interpretations, not dataset annotations.", "",
+        display.to_markdown(index=False), "",
+        "### Recurrent mechanisms", "",
+        "- **Text-led rescue:** explicit impact, relief, or survivor language overcomes an uninformative or misleading image prediction.",
+        "- **Image-led rescue:** visual evidence supplies disaster relevance that terse, political, or noisy text misses.",
+        "- **Shared false-positive suppression:** both unimodal heads react to disaster keywords or imagery, while the learned joint configuration restores the non-informative label.",
+        "- **Negative transfer under conflict:** one strong but wrong modality pulls fusion away from the correct unimodal decision.",
+        "- **Non-monotonic fusion boundary:** because the fusion MLP is not an average of unimodal probabilities, it can be wrong even when both separate heads are correct.",
+        "- **OOD boundary instability:** several California regressions lie close to 0.5, consistent with sensitivity to event shift and random seed.", "",
+        "### Slide assets", "",
+        "- Combined panel: `figures/cases/qualitative_cases.png`", 
+        "- Rescue panel: `figures/cases/qualitative_rescues.png`",
+        "- Regression panel: `figures/cases/qualitative_regressions.png`", "",
+    ]
     Path("reports/error_analysis.md").write_text("\n".join(report) + "\n")
     counts = all_cases.groupby(["protocol", "category"]).size().unstack(fill_value=0)
     axis = counts.plot(kind="bar", figsize=(10, 5)); axis.set_ylabel("Samples"); axis.set_title("Fusion success and failure categories, seed 42")

@@ -91,6 +91,7 @@ Repeat for all seeds, then aggregate:
 .venv/bin/python scripts/compare_models.py
 .venv/bin/python scripts/error_analysis.py
 .venv/bin/python scripts/make_summary_figures.py
+.venv/bin/python scripts/statistical_analysis.py
 ```
 
 ## M4 reproduction
@@ -119,3 +120,8 @@ OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python scripts/run_modality_dropou
 - `figures/`: plots, excluding source-image case montages
 - `reports/`: audit and milestone reports
 
+Final-report statistics are summarized in `reports/statistical_analysis.md`.
+The private repository also includes three curated seed-42 case panels under
+`figures/cases/`: a combined eight-case panel plus separate four-case rescue
+and regression panels. Larger automatically generated candidate montages stay
+local to limit redistribution of source media.

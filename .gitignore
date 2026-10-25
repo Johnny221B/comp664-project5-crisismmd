@@ -24,3 +24,5 @@ dist/
 # course presentation panel; regenerate the larger candidate grids locally.
 figures/cases/*
 !figures/cases/qualitative_cases.png
+!figures/cases/qualitative_rescues.png
+!figures/cases/qualitative_regressions.png

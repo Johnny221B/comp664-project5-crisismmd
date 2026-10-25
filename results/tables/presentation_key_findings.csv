@@ -1,0 +1,7 @@
+finding,estimate,variability
+ID Fusion minus validation-selected unimodal Macro-F1,0.04341890542821386,seed SD 0.00831; all 3 paired CIs exclude 0
+OOD Fusion minus validation-selected unimodal Macro-F1,0.0841909651734996,seed SD 0.01722; all 3 paired CIs exclude 0
+ID fusion rescue proportion,0.17579313342025205,seed SD 0.00626
+ID fusion regression proportion,0.06996957844415472,seed SD 0.00506
+OOD fusion rescue proportion,0.19553695955369596,seed SD 0.01005
+OOD fusion regression proportion,0.10934449093444909,seed SD 0.01991
