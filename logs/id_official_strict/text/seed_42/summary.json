@@ -1,0 +1,86 @@
+{
+  "config": {
+    "protocol": "id_official_strict",
+    "manifest": "data/manifests/id_official_strict.csv",
+    "output_root": ".",
+    "text_model": "distilbert-base-uncased",
+    "image_weights": "IMAGENET1K_V1",
+    "max_length": 128,
+    "image_size": 224,
+    "batch_size": 64,
+    "num_workers": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 25,
+    "patience": 5,
+    "dropout": 0.2,
+    "amp": true,
+    "deterministic": true,
+    "cache_features": true,
+    "model": "text"
+  },
+  "seed": 42,
+  "checkpoint": "checkpoints/id_official_strict/text/seed_42/best.pt",
+  "prediction_path": "results/predictions/id_official_strict_text_seed42_test.csv",
+  "val": {
+    "accuracy": 0.8343949044585988,
+    "macro_precision": 0.8123611785299266,
+    "macro_recall": 0.8123611785299266,
+    "macro_f1": 0.8123611785299266,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.748062015503876,
+        "recall": 0.748062015503876,
+        "f1": 0.748062015503876,
+        "support": 516
+      },
+      "informative": {
+        "precision": 0.8766603415559773,
+        "recall": 0.8766603415559773,
+        "f1": 0.8766603415559773,
+        "support": 1054
+      }
+    },
+    "confusion_matrix": [
+      [
+        386,
+        130
+      ],
+      [
+        130,
+        924
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.8591916558018253,
+    "macro_precision": 0.8428186579997792,
+    "macro_recall": 0.8348570658036677,
+    "macro_f1": 0.8385933325929,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.7987551867219918,
+        "recall": 0.7638888888888888,
+        "f1": 0.7809330628803245,
+        "support": 504
+      },
+      "informative": {
+        "precision": 0.8868821292775665,
+        "recall": 0.9058252427184466,
+        "f1": 0.8962536023054755,
+        "support": 1030
+      }
+    },
+    "confusion_matrix": [
+      [
+        385,
+        119
+      ],
+      [
+        97,
+        933
+      ]
+    ]
+  },
+  "test_cache": "data/processed/features/id_official_strict/text/test_b4157051855b99bd.pt"
+}

@@ -1,0 +1,86 @@
+{
+  "config": {
+    "protocol": "id_official_strict",
+    "manifest": "data/manifests/id_official_strict.csv",
+    "output_root": ".",
+    "text_model": "distilbert-base-uncased",
+    "image_weights": "IMAGENET1K_V1",
+    "max_length": 128,
+    "image_size": 224,
+    "batch_size": 64,
+    "num_workers": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 25,
+    "patience": 5,
+    "dropout": 0.2,
+    "amp": true,
+    "deterministic": true,
+    "cache_features": true,
+    "model": "image"
+  },
+  "seed": 42,
+  "checkpoint": "checkpoints/id_official_strict/image/seed_42/best.pt",
+  "prediction_path": "results/predictions/id_official_strict_image_seed42_test.csv",
+  "val": {
+    "accuracy": 0.8178343949044586,
+    "macro_precision": 0.7941998719437744,
+    "macro_recall": 0.7906296427047939,
+    "macro_f1": 0.7923510913799482,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.7281746031746031,
+        "recall": 0.7112403100775194,
+        "f1": 0.7196078431372549,
+        "support": 516
+      },
+      "informative": {
+        "precision": 0.8602251407129456,
+        "recall": 0.8700189753320683,
+        "f1": 0.8650943396226415,
+        "support": 1054
+      }
+    },
+    "confusion_matrix": [
+      [
+        367,
+        149
+      ],
+      [
+        137,
+        917
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.8246414602346805,
+    "macro_precision": 0.8020602874756158,
+    "macro_recall": 0.7979831252889505,
+    "macro_f1": 0.7999423068065847,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.7393075356415478,
+        "recall": 0.7202380952380952,
+        "f1": 0.7296482412060301,
+        "support": 504
+      },
+      "informative": {
+        "precision": 0.8648130393096836,
+        "recall": 0.8757281553398059,
+        "f1": 0.8702363724071394,
+        "support": 1030
+      }
+    },
+    "confusion_matrix": [
+      [
+        363,
+        141
+      ],
+      [
+        128,
+        902
+      ]
+    ]
+  },
+  "test_cache": "data/processed/features/id_official_strict/image/test_2bb911d24e793e2e.pt"
+}

@@ -1,0 +1,5 @@
+base: configs/base.yaml
+model: fusion
+fusion_hidden: 256
+fusion_dropout: 0.3
+

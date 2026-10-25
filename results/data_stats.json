@@ -1,0 +1,988 @@
+{
+  "id_official": {
+    "event_split_label_counts": [
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 29,
+        "split": "test"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 150,
+        "split": "test"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 204,
+        "split": "train"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 659,
+        "split": "train"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 40,
+        "split": "val"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 113,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 97,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 296,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 682,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 1669,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 122,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 291,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 84,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 240,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 594,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 1522,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 89,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 253,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 165,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 194,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 978,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 1396,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 149,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 219,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 12,
+        "split": "test"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 46,
+        "split": "test"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 74,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 310,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 16,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 42,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 43,
+        "split": "test"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 84,
+        "split": "test"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 230,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 609,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 38,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 110,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 74,
+        "split": "test"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 20,
+        "split": "test"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 494,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 180,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 63,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 28,
+        "split": "val"
+      }
+    ],
+    "events": [
+      "california_wildfires",
+      "hurricane_harvey",
+      "hurricane_irma",
+      "hurricane_maria",
+      "iraq_iran_earthquake",
+      "mexico_earthquake",
+      "srilanka_floods"
+    ],
+    "image_checksum_overlap": {
+      "train_test": 25,
+      "train_val": 26,
+      "val_test": 3
+    },
+    "image_id_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "rows": 12708,
+    "text_length_percentiles": {
+      "0.0": 38.0,
+      "0.25": 105.0,
+      "0.5": 121.0,
+      "0.75": 133.0,
+      "0.9": 139.0,
+      "0.95": 140.0,
+      "0.99": 145.0,
+      "1.0": 182.0
+    },
+    "tweet_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "unique_tweets": 11400
+  },
+  "id_official_strict": {
+    "event_split_label_counts": [
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 29,
+        "split": "test"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 150,
+        "split": "test"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 201,
+        "split": "train"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 651,
+        "split": "train"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 40,
+        "split": "val"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 113,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 97,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 296,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 674,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 1661,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 122,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 290,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 84,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 240,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 592,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 1513,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 89,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 253,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 165,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 194,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 973,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 1390,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 148,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 219,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 12,
+        "split": "test"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 46,
+        "split": "test"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 72,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 309,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 16,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 42,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 43,
+        "split": "test"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 84,
+        "split": "test"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 227,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 602,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 38,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 109,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 74,
+        "split": "test"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 20,
+        "split": "test"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 490,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 180,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 63,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 28,
+        "split": "val"
+      }
+    ],
+    "events": [
+      "california_wildfires",
+      "hurricane_harvey",
+      "hurricane_irma",
+      "hurricane_maria",
+      "iraq_iran_earthquake",
+      "mexico_earthquake",
+      "srilanka_floods"
+    ],
+    "image_checksum_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "image_id_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "rows": 12639,
+    "text_length_percentiles": {
+      "0.0": 38.0,
+      "0.25": 105.0,
+      "0.5": 121.0,
+      "0.75": 133.0,
+      "0.9": 139.0,
+      "0.95": 140.0,
+      "0.99": 145.0,
+      "1.0": 182.0
+    },
+    "tweet_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "unique_tweets": 11334
+  },
+  "images": {
+    "checked": 12708,
+    "distinct_shapes": 4335,
+    "exceptions": 0,
+    "format_counts": {
+      "JPEG": 12617,
+      "PNG": 91
+    },
+    "readable": 12708
+  },
+  "ood_heldout": {
+    "event_split_label_counts": [
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 273,
+        "split": "test"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 922,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 766,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 1945,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 135,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 311,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 647,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 1725,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 120,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 290,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 1090,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 1544,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 202,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 265,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 87,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 336,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 15,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 62,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 268,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 698,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 43,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 105,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 543,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 198,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 88,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 30,
+        "split": "val"
+      }
+    ],
+    "events": [
+      "california_wildfires",
+      "hurricane_harvey",
+      "hurricane_irma",
+      "hurricane_maria",
+      "iraq_iran_earthquake",
+      "mexico_earthquake",
+      "srilanka_floods"
+    ],
+    "image_checksum_overlap": {
+      "train_test": 1,
+      "train_val": 23,
+      "val_test": 1
+    },
+    "image_id_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "rows": 12708,
+    "text_length_percentiles": {
+      "0.0": 38.0,
+      "0.25": 105.0,
+      "0.5": 121.0,
+      "0.75": 133.0,
+      "0.9": 139.0,
+      "0.95": 140.0,
+      "0.99": 145.0,
+      "1.0": 182.0
+    },
+    "tweet_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "unique_tweets": 11400
+  },
+  "ood_heldout_strict": {
+    "event_split_label_counts": [
+      {
+        "event": "california_wildfires",
+        "label": 0,
+        "n": 273,
+        "split": "test"
+      },
+      {
+        "event": "california_wildfires",
+        "label": 1,
+        "n": 922,
+        "split": "test"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 756,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 1943,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 0,
+        "n": 134,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_harvey",
+        "label": 1,
+        "n": 311,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 646,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 1717,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 0,
+        "n": 120,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_irma",
+        "label": 1,
+        "n": 290,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 1084,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 1540,
+        "split": "train"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 0,
+        "n": 202,
+        "split": "val"
+      },
+      {
+        "event": "hurricane_maria",
+        "label": 1,
+        "n": 265,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 85,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 335,
+        "split": "train"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 0,
+        "n": 15,
+        "split": "val"
+      },
+      {
+        "event": "iraq_iran_earthquake",
+        "label": 1,
+        "n": 62,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 267,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 695,
+        "split": "train"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 0,
+        "n": 43,
+        "split": "val"
+      },
+      {
+        "event": "mexico_earthquake",
+        "label": 1,
+        "n": 105,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 542,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 198,
+        "split": "train"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 0,
+        "n": 88,
+        "split": "val"
+      },
+      {
+        "event": "srilanka_floods",
+        "label": 1,
+        "n": 30,
+        "split": "val"
+      }
+    ],
+    "events": [
+      "california_wildfires",
+      "hurricane_harvey",
+      "hurricane_irma",
+      "hurricane_maria",
+      "iraq_iran_earthquake",
+      "mexico_earthquake",
+      "srilanka_floods"
+    ],
+    "image_checksum_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "image_id_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "rows": 12668,
+    "text_length_percentiles": {
+      "0.0": 38.0,
+      "0.25": 105.0,
+      "0.5": 121.0,
+      "0.75": 133.0,
+      "0.9": 139.0,
+      "0.95": 140.0,
+      "0.99": 145.0,
+      "1.0": 182.0
+    },
+    "tweet_overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "unique_tweets": 11365
+  }
+}

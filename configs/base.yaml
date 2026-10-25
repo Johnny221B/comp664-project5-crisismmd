@@ -1,0 +1,18 @@
+protocol: id_official_strict
+manifest: data/manifests/id_official_strict.csv
+output_root: .
+text_model: distilbert-base-uncased
+image_weights: IMAGENET1K_V1
+max_length: 128
+image_size: 224
+batch_size: 64
+num_workers: 8
+lr: 0.001
+weight_decay: 0.0001
+max_epochs: 25
+patience: 5
+dropout: 0.2
+amp: true
+deterministic: true
+cache_features: true
+

@@ -1,0 +1,88 @@
+{
+  "config": {
+    "protocol": "id_official_strict",
+    "manifest": "data/manifests/id_official_strict.csv",
+    "output_root": ".",
+    "text_model": "distilbert-base-uncased",
+    "image_weights": "IMAGENET1K_V1",
+    "max_length": 128,
+    "image_size": 224,
+    "batch_size": 64,
+    "num_workers": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 25,
+    "patience": 5,
+    "dropout": 0.2,
+    "amp": true,
+    "deterministic": true,
+    "cache_features": true,
+    "model": "fusion",
+    "fusion_hidden": 256,
+    "fusion_dropout": 0.3
+  },
+  "seed": 123,
+  "checkpoint": "checkpoints/id_official_strict/fusion/seed_123/best.pt",
+  "prediction_path": "results/predictions/id_official_strict_fusion_seed123_test.csv",
+  "val": {
+    "accuracy": 0.902547770700637,
+    "macro_precision": 0.8879285767465848,
+    "macro_recall": 0.8927967285939131,
+    "macro_f1": 0.890278745246714,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.8431001890359168,
+        "recall": 0.8643410852713178,
+        "f1": 0.8535885167464115,
+        "support": 516
+      },
+      "informative": {
+        "precision": 0.9327569644572526,
+        "recall": 0.9212523719165086,
+        "f1": 0.9269689737470167,
+        "support": 1054
+      }
+    },
+    "confusion_matrix": [
+      [
+        446,
+        70
+      ],
+      [
+        83,
+        971
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.8963494132985659,
+    "macro_precision": 0.879182921238996,
+    "macro_recall": 0.8903914316535676,
+    "macro_f1": 0.8843022563588316,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.822429906542056,
+        "recall": 0.873015873015873,
+        "f1": 0.8469682386910491,
+        "support": 504
+      },
+      "informative": {
+        "precision": 0.9359359359359359,
+        "recall": 0.9077669902912622,
+        "f1": 0.9216362740266141,
+        "support": 1030
+      }
+    },
+    "confusion_matrix": [
+      [
+        440,
+        64
+      ],
+      [
+        95,
+        935
+      ]
+    ]
+  },
+  "test_cache": "data/processed/features/id_official_strict/fusion/test_7e502b618549d39e.pt"
+}

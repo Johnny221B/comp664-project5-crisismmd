@@ -1,0 +1,4 @@
+base: configs/base.yaml
+protocol: ood_heldout_strict
+manifest: data/manifests/ood_heldout_strict.csv
+model: text

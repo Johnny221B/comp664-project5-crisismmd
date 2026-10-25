@@ -1,0 +1,6 @@
+base: configs/base.yaml
+protocol: ood_heldout_strict
+manifest: data/manifests/ood_heldout_strict.csv
+model: fusion
+fusion_hidden: 256
+fusion_dropout: 0.3

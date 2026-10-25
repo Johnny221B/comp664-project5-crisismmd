@@ -1,0 +1,20 @@
+{
+  "id_official_strict": {
+    "input_rows": 12708,
+    "output_rows": 12639,
+    "removed_rows": 69,
+    "removed_by_split": {
+      "train": 66,
+      "val": 3
+    }
+  },
+  "ood_heldout_strict": {
+    "input_rows": 12708,
+    "output_rows": 12668,
+    "removed_rows": 40,
+    "removed_by_split": {
+      "train": 39,
+      "val": 1
+    }
+  }
+}

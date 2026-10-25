@@ -1,0 +1,25 @@
+# Large or redistributable inputs
+data/raw/
+data/processed/
+
+# Downloaded model assets and local environments
+.cache/
+.venv/
+.tmp/
+
+# Python/build products
+.pytest_cache/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Local editor and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# These montages contain CrisisMMD source images; regenerate locally.
+figures/cases/
+

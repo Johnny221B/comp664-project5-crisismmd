@@ -1,0 +1,88 @@
+{
+  "config": {
+    "protocol": "ood_heldout_strict",
+    "manifest": "data/manifests/ood_heldout_strict.csv",
+    "output_root": ".",
+    "text_model": "distilbert-base-uncased",
+    "image_weights": "IMAGENET1K_V1",
+    "max_length": 128,
+    "image_size": 224,
+    "batch_size": 64,
+    "num_workers": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 25,
+    "patience": 5,
+    "dropout": 0.2,
+    "amp": true,
+    "deterministic": true,
+    "cache_features": true,
+    "model": "fusion",
+    "fusion_hidden": 256,
+    "fusion_dropout": 0.3
+  },
+  "seed": 123,
+  "checkpoint": "checkpoints/ood_heldout_strict/fusion/seed_123/best.pt",
+  "prediction_path": "results/predictions/ood_heldout_strict_fusion_seed123_test.csv",
+  "val": {
+    "accuracy": 0.9081081081081082,
+    "macro_precision": 0.9036399926088287,
+    "macro_recall": 0.8959762535043114,
+    "macro_f1": 0.8995496502603085,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.8890814558058926,
+        "recall": 0.8521594684385382,
+        "f1": 0.8702290076335878,
+        "support": 602
+      },
+      "informative": {
+        "precision": 0.9181985294117647,
+        "recall": 0.9397930385700847,
+        "f1": 0.9288702928870293,
+        "support": 1063
+      }
+    },
+    "confusion_matrix": [
+      [
+        513,
+        89
+      ],
+      [
+        64,
+        999
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.8460251046025105,
+    "macro_precision": 0.7835314977054653,
+    "macro_recall": 0.7700074690313302,
+    "macro_f1": 0.7763483383784135,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.6745098039215687,
+        "recall": 0.63003663003663,
+        "f1": 0.6515151515151515,
+        "support": 273
+      },
+      "informative": {
+        "precision": 0.8925531914893617,
+        "recall": 0.9099783080260304,
+        "f1": 0.9011815252416756,
+        "support": 922
+      }
+    },
+    "confusion_matrix": [
+      [
+        172,
+        101
+      ],
+      [
+        83,
+        839
+      ]
+    ]
+  },
+  "test_cache": "data/processed/features/ood_heldout_strict/fusion/test_2e2bcaf3ae166206.pt"
+}

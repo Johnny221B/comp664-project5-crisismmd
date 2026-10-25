@@ -1,0 +1,100 @@
+{
+  "protocol": "id_official_strict",
+  "variant": "dropout",
+  "seed": 123,
+  "checkpoint": "checkpoints/id_official_strict/fusion_dropout/seed_123/best.pt",
+  "best_epoch": 18,
+  "modality_dropout_probability": 0.2,
+  "conditions": {
+    "both": {
+      "accuracy": 0.8989569752281616,
+      "macro_precision": 0.890247005616023,
+      "macro_recall": 0.8781476344583141,
+      "macro_f1": 0.8837384989030043,
+      "per_class": {
+        "not_informative": {
+          "precision": 0.8673684210526316,
+          "recall": 0.8174603174603174,
+          "f1": 0.8416751787538305,
+          "support": 504
+        },
+        "informative": {
+          "precision": 0.9131255901794145,
+          "recall": 0.9388349514563107,
+          "f1": 0.9258018190521781,
+          "support": 1030
+        }
+      },
+      "confusion_matrix": [
+        [
+          412,
+          92
+        ],
+        [
+          63,
+          967
+        ]
+      ]
+    },
+    "text_only": {
+      "accuracy": 0.8552803129074316,
+      "macro_precision": 0.8469245028648467,
+      "macro_recall": 0.8172522730775158,
+      "macro_f1": 0.8291413216025239,
+      "per_class": {
+        "not_informative": {
+          "precision": 0.827906976744186,
+          "recall": 0.7063492063492064,
+          "f1": 0.7623126338329764,
+          "support": 504
+        },
+        "informative": {
+          "precision": 0.8659420289855072,
+          "recall": 0.9281553398058252,
+          "f1": 0.8959700093720713,
+          "support": 1030
+        }
+      },
+      "confusion_matrix": [
+        [
+          356,
+          148
+        ],
+        [
+          74,
+          956
+        ]
+      ]
+    },
+    "image_only": {
+      "accuracy": 0.8272490221642764,
+      "macro_precision": 0.8123543123543123,
+      "macro_recall": 0.7852327014948375,
+      "macro_f1": 0.7959241047112008,
+      "per_class": {
+        "not_informative": {
+          "precision": 0.7785547785547785,
+          "recall": 0.6626984126984127,
+          "f1": 0.7159699892818864,
+          "support": 504
+        },
+        "informative": {
+          "precision": 0.8461538461538461,
+          "recall": 0.9077669902912622,
+          "f1": 0.8758782201405152,
+          "support": 1030
+        }
+      },
+      "confusion_matrix": [
+        [
+          334,
+          170
+        ],
+        [
+          95,
+          935
+        ]
+      ]
+    }
+  }
+}

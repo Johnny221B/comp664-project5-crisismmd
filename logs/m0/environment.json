@@ -1,0 +1,63 @@
+{
+  "captured_at": "2026-10-25T20:46:50.103639+00:00",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "python": "3.11.17 (main, Oct  1 2026, 20:17:42) [GCC 14.3.0]",
+  "executable": "/data2/yangyz/comp664/comp664-project5/.venv/bin/python",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "torch_cuda": "12.8",
+  "cuda_available": true,
+  "cuda_device_count": 8,
+  "nvidia_smi": [
+    "0, NVIDIA RTX A5000, GPU-85234449-6db7-6881-8d87-f5836f9a3d57, 24564 MiB, 570.86.10",
+    "1, NVIDIA RTX A5000, GPU-adcdf1cf-a25b-90ae-5ec4-b4025239013a, 24564 MiB, 570.86.10",
+    "2, NVIDIA RTX A5000, GPU-779e358e-d341-5b7c-0300-db0c610f8883, 24564 MiB, 570.86.10",
+    "3, NVIDIA RTX A5000, GPU-b689cb06-c139-5b2c-4cf2-936c7e174bdd, 24564 MiB, 570.86.10",
+    "4, NVIDIA RTX A5000, GPU-97be5dc6-66dc-f7dd-664f-ba5c194a47f9, 24564 MiB, 570.86.10",
+    "5, NVIDIA RTX A5000, GPU-f9e06aed-1790-3da8-3128-97049170d9d1, 24564 MiB, 570.86.10",
+    "6, NVIDIA RTX A5000, GPU-7bcf10b7-0d84-39a5-9da3-53fbd861bb8e, 24564 MiB, 570.86.10",
+    "7, NVIDIA RTX A5000, GPU-1ad1bc45-1356-678b-f17f-4671c0ee1edb, 24564 MiB, 570.86.10"
+  ],
+  "torch_devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 2,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 3,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 4,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 5,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 6,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    },
+    {
+      "index": 7,
+      "name": "NVIDIA RTX A5000",
+      "total_memory": 25294995456
+    }
+  ]
+}

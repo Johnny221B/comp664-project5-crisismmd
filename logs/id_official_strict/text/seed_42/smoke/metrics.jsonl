@@ -1,0 +1,2 @@
+{"elapsed_seconds": 0.1550743579864502, "epoch": 1, "train_loss": 0.6848209053277969, "val_accuracy": 0.5, "val_confusion_matrix": [[4, 4], [4, 4]], "val_macro_f1": 0.5, "val_macro_precision": 0.5, "val_macro_recall": 0.5}
+{"elapsed_seconds": 0.19002056121826172, "epoch": 2, "train_loss": 0.6485330015420914, "val_accuracy": 0.5625, "val_confusion_matrix": [[2, 6], [1, 7]], "val_macro_f1": 0.5151515151515151, "val_macro_precision": 0.6025641025641025, "val_macro_recall": 0.5625}

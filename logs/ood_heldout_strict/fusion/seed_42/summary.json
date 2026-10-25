@@ -1,0 +1,88 @@
+{
+  "config": {
+    "protocol": "ood_heldout_strict",
+    "manifest": "data/manifests/ood_heldout_strict.csv",
+    "output_root": ".",
+    "text_model": "distilbert-base-uncased",
+    "image_weights": "IMAGENET1K_V1",
+    "max_length": 128,
+    "image_size": 224,
+    "batch_size": 64,
+    "num_workers": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 25,
+    "patience": 5,
+    "dropout": 0.2,
+    "amp": true,
+    "deterministic": true,
+    "cache_features": true,
+    "model": "fusion",
+    "fusion_hidden": 256,
+    "fusion_dropout": 0.3
+  },
+  "seed": 42,
+  "checkpoint": "checkpoints/ood_heldout_strict/fusion/seed_42/best.pt",
+  "prediction_path": "results/predictions/ood_heldout_strict_fusion_seed42_test.csv",
+  "val": {
+    "accuracy": 0.9117117117117117,
+    "macro_precision": 0.9040542647746764,
+    "macro_recall": 0.9049218190853318,
+    "macro_f1": 0.9044843999576969,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.8760330578512396,
+        "recall": 0.8803986710963455,
+        "f1": 0.8782104391052196,
+        "support": 602
+      },
+      "informative": {
+        "precision": 0.9320754716981132,
+        "recall": 0.929444967074318,
+        "f1": 0.9307583608101743,
+        "support": 1063
+      }
+    },
+    "confusion_matrix": [
+      [
+        530,
+        72
+      ],
+      [
+        75,
+        988
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.8100418410041841,
+    "macro_precision": 0.7340602093863856,
+    "macro_recall": 0.7582914193543261,
+    "macro_f1": 0.7442799651957175,
+    "per_class": {
+      "not_informative": {
+        "precision": 0.5727848101265823,
+        "recall": 0.663003663003663,
+        "f1": 0.6146010186757216,
+        "support": 273
+      },
+      "informative": {
+        "precision": 0.8953356086461889,
+        "recall": 0.8535791757049892,
+        "f1": 0.8739589117157135,
+        "support": 922
+      }
+    },
+    "confusion_matrix": [
+      [
+        181,
+        92
+      ],
+      [
+        135,
+        787
+      ]
+    ]
+  },
+  "test_cache": "data/processed/features/ood_heldout_strict/fusion/test_2e2bcaf3ae166206.pt"
+}
